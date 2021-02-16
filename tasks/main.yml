@@ -1,0 +1,7 @@
+---
+- name: Create Filesystems
+  community.general.filesystem:
+    fstype: {item.fstype}
+    dev: {item.device}
+  with_items: 
+    - {filesystems}
