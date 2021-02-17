@@ -1,7 +1,10 @@
 ---
 - name: Create Filesystems
   community.general.filesystem:
-    fstype: {item.fstype}
-    dev: {item.device}
+    fstype: "{{ item.fstype }}"
+    dev:    "{{ item.device }}"
+  become: true
   with_items: 
-    - {filesystems}
+    - "{{ filesystems }}"
+  when:
+    - filesystems is defined
